@@ -4,13 +4,13 @@
   <parent>
     <groupId>org.jenkins-ci</groupId>
     <artifactId>jenkins</artifactId>
-    <version>1.57</version>
+    <version>1.62</version>
     <relativePath />
   </parent>
 
   <groupId>org.jenkins-ci.tools</groupId>
   <artifactId>maven-hpi-plugin</artifactId>
-  <version>3.16-SNAPSHOT</version>
+  <version>3.18-SNAPSHOT</version>
   <packaging>maven-plugin</packaging>
 
   <name>Maven Jenkins Plugin</name>
@@ -28,10 +28,6 @@
     <url>https://github.com/jenkinsci/maven-hpi-plugin</url>
     <tag>HEAD</tag>
   </scm>
-  <ciManagement>
-    <system>jenkins</system>
-    <url>https://buildhive.cloudbees.com/job/jenkinsci/job/maven-hpi-plugin/</url>
-  </ciManagement>
   <distributionManagement>
     <site>
       <!-- if this deployment fails, it's probably you are missing the entry to set the username in ~/.m2/settings.xml
@@ -102,7 +98,7 @@
     <dependency>
       <groupId>org.kohsuke.stapler</groupId>
       <artifactId>stapler-groovy</artifactId>
-      <version>1.259</version>
+      <version>1.260</version>
     </dependency>
     <dependency>
       <groupId>org.apache.maven</groupId>
@@ -127,7 +123,7 @@
     <dependency>
       <groupId>org.eclipse.jetty</groupId>
       <artifactId>jetty-maven-plugin</artifactId>
-      <version>9.4.29.v20200521</version>
+      <version>9.4.32.v20200930</version>
     </dependency>
     <dependency>
       <groupId>net.java.sezpoz</groupId>
@@ -181,7 +177,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-site-plugin</artifactId>
-          <version>3.9.0</version>
+          <version>3.9.1</version>
           <dependencies>
             <dependency>
               <groupId>com.github.stephenc.wagon</groupId>
@@ -323,7 +319,7 @@
       <extension>
         <groupId>org.apache.maven.wagon</groupId>
         <artifactId>wagon-ssh</artifactId>
-        <version>3.4.0</version>
+        <version>3.4.1</version>
       </extension>
     </extensions>
   </build>
