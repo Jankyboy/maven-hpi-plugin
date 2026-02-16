@@ -68,7 +68,8 @@ public class ValidateHpiMojo extends AbstractHpiMojo {
                 if (mainAttributes.containsKey(hName)) {
                     return new VersionNumber(mainAttributes.getValue(hName));
                 } else {
-                    throw new MojoExecutionException("Could not find Jenkins-Version in manifest for " + file + " (" + artifact + "): " + mainAttributes.entrySet());
+                    throw new MojoExecutionException("Could not find Jenkins-Version in manifest for " + file + " ("
+                            + artifact + "): " + mainAttributes.entrySet());
                 }
             }
         } else {
