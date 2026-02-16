@@ -60,6 +60,8 @@ public class ValidateHpiMojo extends AbstractHpiMojo {
             try (JarFile jarFile = new JarFile(file)) {
                 mainAttributes = jarFile.getManifest().getMainAttributes();
             }
+            getLog().info(file + " of size " + file.length() + " for " + artifact + " has attributes "
+                    + mainAttributes.entrySet());
             Attributes.Name jName = new Attributes.Name("Jenkins-Version");
             if (mainAttributes.containsKey(jName)) {
                 return new VersionNumber(mainAttributes.getValue(jName));
