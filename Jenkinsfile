@@ -19,7 +19,7 @@ def runTests(Map params = [:]) {
         stage("Build (${stageIdentifier})") {
           ansiColor('xterm') {
             infra.withArtifactCachingProxy(true) {
-              def args = ['-Dstyle.color=always', '-Dmaven.test.failure.ignore', 'clean', 'install']
+              def args = ['-Dstyle.color=always', '-Prun-its', '-Dmaven.test.failure.ignore', 'clean', 'install', 'site']
               if (publishing) {
                 args += '-Dset.changelist'
               }
@@ -31,6 +31,7 @@ def runTests(Map params = [:]) {
           }
         }
         stage("Archive (${stageIdentifier})") {
+          junit 'target/invoker-reports/TEST-*.xml'
           if (publishing) {
             infra.prepareToPublishIncrementals()
           }
@@ -42,5 +43,6 @@ def runTests(Map params = [:]) {
 
 parallel(
     'linux-21': runTests(platform: 'linux', jdk: 21),
+    'windows-17': runTests(platform: 'windows', jdk: 17)
 )
 infra.maybePublishIncrementals()
